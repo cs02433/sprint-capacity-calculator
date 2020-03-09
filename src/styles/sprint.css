@@ -1,0 +1,57 @@
+html, body {
+    min-height: 100vh;
+    margin: 0;
+    background-color: grey;
+}
+
+.banner-container {
+    display: grid;
+    height: 100px;
+    background-color: dimgrey;
+
+}
+
+.center {
+    align-self: center;
+    justify-self: center;
+}
+
+.container {
+    min-height: 100%;
+}
+
+.schedule-container {
+    display: grid;
+    height: 80px;
+    width: auto;
+    background-color: rosybrown;
+}
+
+.schedule-item {
+    display: inline;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+input {
+    display: inline-block;
+    width: 200px;
+    position: relative;
+}
+
+label {
+    display: inline-block;
+    width: 200px;
+    padding-top: 1.5em;
+}
+
+.add-new-member {
+    margin-top: 10px;
+}
+
+.new-member > input {
+    margin: 5px;
+}
+
+
+
