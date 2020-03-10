@@ -36,9 +36,6 @@ export default class AddForm extends React.Component {
         }
         if (show) {
             return <div>
-                <div>
-                    <h3>{this.props.title}</h3>
-                </div>
                 <AddMember title={this.props.title} fields={this.props.fields} showCancel={this.noMember()}
                            onCancel={() => this.addMemberCancel()}
                            onSuccess={(member) => this.onSuccess(member)}/>

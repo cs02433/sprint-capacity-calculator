@@ -1,8 +1,9 @@
 import * as React from "react";
+import str from '../datamodel/string-utils';
+import '../styles/form.css';
 
 class AddMember extends React.Component {
     constructor(props) {
-
         super(props);
         let state = {};
         props.fields.forEach((name) => state[name] = "");
@@ -19,20 +20,21 @@ class AddMember extends React.Component {
     }
 
     render() {
-        return <div>
+        return (
+            <div className="form">
 
-            <div>
-                <form onSubmit={(e) => this.onSubmit(e)} action="#">
+                <form className={"box"} onSubmit={(e) => this.onSubmit(e)} action="#">
+                    <div className="title"><h3>{this.props.title}</h3></div>
                     {this.showFields()}
-                    <br/>
-                    <input type="submit" value={"Add " + this.props.title}/>
-                    <input type="button" value="Cancel" className={this.props.showCancel ? "hide" : "show"}
-                           onClick={() => this.addMemberActionCancelled()}/>
+                    <div className="add-cancel">
+                        <input type="submit" value="Add"/>
+                        <input type="button" name="cancel" value="Cancel"
+                               className={this.props.showCancel ? "hide" : "show"}
+                               onClick={() => this.addMemberActionCancelled()}/>
+                    </div>
+
                 </form>
-
-            </div>
-
-        </div>
+            </div>);
     }
 
     reset() {
@@ -53,7 +55,16 @@ class AddMember extends React.Component {
 
     showFields() {
         return this.props.fields.map(name => {
-            return <input type="text" value={this.state[name]} name={name} onChange={(e) => this.onChange(e)}/>
+            return (
+                <div className="input-field">
+                    <div className="label">
+                        <span>{str.capatilizeFirstLetter(name)} </span>
+                    </div>
+                    <div>
+                        <input type="text" value={this.state[name]} name={name} onChange={(e) => this.onChange(e)}/>
+                    </div>
+
+                </div>);
         });
     }
 }

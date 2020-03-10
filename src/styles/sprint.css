@@ -18,17 +18,13 @@ html, body {
 
 .container {
     min-height: 100%;
+    background-image: url("../images/IMG_5222.JPG");
+    background-repeat: no-repeat;
+
 }
 
-.schedule-container {
-    display: grid;
-    height: 80px;
-    width: auto;
-    background-color: rosybrown;
-}
 
 .schedule-item {
-    display: inline;
     margin-left: 10px;
     margin-right: 10px;
 }

@@ -23,28 +23,39 @@ export default class SprintCapacityPlanner extends React.Component {
                     <span><h1> Sprint Capacity Planner</h1></span>
                 </div>
             </div>
-            <div className="schedule-container">
-                <div>
-                    <div className="schedule-item">
-                        <label>Start Date <input name="startDate" id="startDate" value={this.props.startDate}
-                                                 type="date"
-                                                 onChange={(e) => this.onChange(e)}/></label>
+            <div className="main-content">
+                <div className="center">
+
+                    <div className="box">
+                        <div className="title">
+                            <h3> Sprint Start/End Dates </h3>
+                        </div>
+
+                        <div className="schedule-item">
+                            <label>Start Date <input name="startDate" id="startDate" value={this.props.startDate}
+                                                     type="date"
+                                                     onChange={(e) => this.onChange(e)}/></label>
+                        </div>
+                        <div className="schedule-item">
+                            <label>End Date <input name="endDate" id="endDate" type="date" value={this.props.endDate}
+                                                   onChange={(e) => this.onChange(e)}/></label>
+                        </div>
                     </div>
-                    <div className="schedule-item">
-                        <label>End Date <input name="endDate" id="endDate" type="date" value={this.props.endDate}
-                                               onChange={(e) => this.onChange(e)}/></label>
+                    <div>
+                        {this.state.capacity}
+                    </div>
+
+                    {this.showTeamMemberSection()}
+                    {this.showFixedTasksSection()}
+                    <div>
+                        <input type="button" value="Calculate Capacity" onClick={() => this.calculateCapacity()}/>
                     </div>
                 </div>
-            </div>
-            <div>
-                {this.state.capacity}
-            </div>
 
-            {this.showTeamMemberSection()}
-            {this.showFixedTasksSection()}
-            <input type="button" value="Calculate Capacity" onClick={() => this.calculateCapacity()}/>
+            </div>
 
         </div>
+
     }
 
     showTeamMemberSection() {
